@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class AddMovie extends Component {
     render() {
-
         return (
             <p>ADD MOVIE</p>
         )
