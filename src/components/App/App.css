@@ -18,16 +18,79 @@
   font-size: large;
 }
 
-li {
+.movieCard {
+  display: flex;
   list-style: none;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  overflow: auto;
+  box-shadow: 0 4px 12px 0 grey;
   margin: 35px;
+}
+
+.movieText {
   text-align: left;
+  margin: 0 30px;
+  overflow: auto;
 }
 
 img {
   text-align: left;
+  margin: auto;
+  height: 15em;
+  width: 10em;
+}
+
+.movieForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25%;
+  width: 50%;
+}
+
+
+
+.movieForm * {
+  margin: 10px;
+  width: 75%;
+}
+
+textarea {
+  height: 50px;
+}
+
+button {
+  width: auto !important;
+  background-color: white;
+  border: 2px solid #008CBA;
+  padding: 8px 18px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #008CBA;
+  color: white;
+  border: 2px solid #008CBA;
+}
+
+select {
+  width: auto !important;
+}
+
+.link {
+  color: black;
+  border: 2px solid #008CBA;
+  background-color: white;
+  border-radius: 10px;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px;
+}
+
+.link:hover {
+  text-decoration: underline;
+  background-color: #008CBA;
+  color: white;
 }
 
 @keyframes App-logo-spin {

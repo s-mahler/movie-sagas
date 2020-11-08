@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <h1>Movies!</h1>
         <Router>
-          <Link to="/addmovie">Add a movie</Link>
+          <Link className="link" to="/addmovie">Add a movie</Link>
 
           <Route exact path="/" component={Movies}/>
           <Route path="/details/:movieId" component={MovieDetails}/>

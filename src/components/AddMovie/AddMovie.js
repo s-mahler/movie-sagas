@@ -49,11 +49,11 @@ class AddMovie extends Component {
 
     render() {
         return (
-            <div>
-                <input onChange={(event) => this.handleChange(event, 'title')} placeholder="Title"/>
-                <input onChange={(event) => this.handleChange(event, 'poster')}placeholder="Poster URL"/>
-                <textarea onChange={(event) => this.handleChange(event, 'description')} placeholder="Description"/>
-                <select onChange={(event) => this.handleChange(event, 'genre_id')}>
+            <div className="movieForm">
+                <input className="movieTitle" onChange={(event) => this.handleChange(event, 'title')} placeholder="Title"/>
+                <input className="moviePoster" onChange={(event) => this.handleChange(event, 'poster')}placeholder="Poster URL"/>
+                <textarea className="movieDescription" onChange={(event) => this.handleChange(event, 'description')} placeholder="Description"/>
+                <select className="movieGenre" onChange={(event) => this.handleChange(event, 'genre_id')}>
                     <option value=''>Select a genre</option>
                     {this.props.reduxStore.genres.map((genre) => {
                         return <option key={genre.id} value={genre.id}>
