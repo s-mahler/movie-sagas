@@ -18,7 +18,7 @@ class Movies extends Component {
     
     render() {
         return (
-            <ul>
+            <ol>
                 {this.props.reduxStore.movies.map((movie) => {
                     return <li key={movie.id}>
                                 <img onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
@@ -26,7 +26,7 @@ class Movies extends Component {
                                 {movie.description}
                             </li>
                 })}
-            </ul>
+            </ol>
         )
     }
 }
