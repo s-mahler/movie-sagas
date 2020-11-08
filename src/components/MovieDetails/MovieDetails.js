@@ -15,6 +15,10 @@ class MovieDetails extends Component {
     getSpecificMovie = () => {
         this.props.dispatch({type: 'GET_SPECIFIC_MOVIE', payload: this.props.match.params.movieId});
     }
+
+    goBack = () => {
+        this.props.history.push(`/`);
+    }
     
     render() {
         return (
@@ -26,7 +30,7 @@ class MovieDetails extends Component {
                                 {movie.description}
                             </div>
                 })}
-                <button>Go Back</button>
+                <button onClick={this.goBack}>Go Back</button>
             </>
         )
     }
