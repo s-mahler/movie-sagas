@@ -6,6 +6,7 @@ class MovieDetails extends Component {
     
     componentDidMount = () => {
         this.getSpecificMovie();
+        this.getGenres();
     }
 
     getGenres = () => {
@@ -28,6 +29,14 @@ class MovieDetails extends Component {
                                 <img onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
                                 <h4>{movie.title}</h4> 
                                 {movie.description}
+                            </div>
+                })}
+
+                <h4>Genres</h4>
+                
+                {this.props.reduxStore.genres.map((genre, index) => {
+                    return <div key={index}>
+                                <p>{genre.name}</p>
                             </div>
                 })}
                 <button onClick={this.goBack}>Go Back</button>

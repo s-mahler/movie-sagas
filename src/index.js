@@ -24,15 +24,19 @@ function* getMovies() {
     yield put({type: 'SET_MOVIES', payload: moviesResponse.data});
 }
 
-function* getGenres() {
-    const genresResposne = yield Axios.get(`/api/genre`);
-    yield put({type: 'SET_GENRES', payload: genresResposne.data});
+function* getGenres(action) {
+    try {
+        const genresResponse = yield Axios.get(`/api/genre/${action.payload}`);
+        yield put({type: 'SET_GENRES', payload: genresResponse.data});
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function* getSpecificMovie(action) {
     try {
-    const specificMovieResponse = yield Axios.get(`/api/movie/${action.payload}`);
-    yield put({type: 'SET_MOVIES', payload: specificMovieResponse.data});
+        const specificMovieResponse = yield Axios.get(`/api/movie/${action.payload}`);
+        yield put({type: 'SET_MOVIES', payload: specificMovieResponse.data});
     } catch (error) {
         console.log(error);
     }
