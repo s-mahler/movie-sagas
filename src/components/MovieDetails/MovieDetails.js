@@ -26,7 +26,7 @@ class MovieDetails extends Component {
             <>
                 {this.props.reduxStore.movies.map((movie) => {
                     return <div key={movie.id}>
-                                <img onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
+                                <img alt={movie.description} src={movie.poster}/> 
                                 <h4>{movie.title}</h4> 
                                 {movie.description}
                             </div>

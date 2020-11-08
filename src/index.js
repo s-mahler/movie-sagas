@@ -18,6 +18,16 @@ function* rootSaga() {
     yield takeEvery('GET_GENRES', getGenres)
     yield takeEvery('GET_SPECIFIC_GENRES', getSpecificGenres);
     yield takeEvery('GET_SPECIFIC_MOVIE', getSpecificMovie);
+    yield takeEvery('ADD_MOVIE', addMovie);
+}
+
+function* addMovie(action) {
+    try{
+        yield Axios.post('/api/movie', action.payload);
+        yield put({type: 'SET_MOVIES'});
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function* getMovies() {
