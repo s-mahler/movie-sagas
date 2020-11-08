@@ -15,7 +15,8 @@ import Axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
-    yield takeEvery('GET_GENRES', getGenres);
+    yield takeEvery('GET_GENRES', getGenres)
+    yield takeEvery('GET_SPECIFIC_GENRES', getSpecificGenres);
     yield takeEvery('GET_SPECIFIC_MOVIE', getSpecificMovie);
 }
 
@@ -24,10 +25,15 @@ function* getMovies() {
     yield put({type: 'SET_MOVIES', payload: moviesResponse.data});
 }
 
-function* getGenres(action) {
+function* getGenres() {
+    const genresResponse = yield Axios.get(`/api/genre`);
+    yield put({type: 'SET_GENRES', payload: genresResponse.data});
+}
+
+function* getSpecificGenres(action) {
     try {
-        const genresResponse = yield Axios.get(`/api/genre/${action.payload}`);
-        yield put({type: 'SET_GENRES', payload: genresResponse.data});
+        const specificGenresResponse = yield Axios.get(`/api/genre/${action.payload}`);
+        yield put({type: 'SET_GENRES', payload: specificGenresResponse.data});
     } catch (error) {
         console.log(error);
     }

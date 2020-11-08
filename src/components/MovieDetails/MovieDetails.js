@@ -10,7 +10,7 @@ class MovieDetails extends Component {
     }
 
     getGenres = () => {
-        this.props.dispatch({type: 'GET_GENRES', payload: this.props.match.params.movieId});
+        this.props.dispatch({type: 'GET_SPECIFIC_GENRES', payload: this.props.match.params.movieId});
     }
 
     getSpecificMovie = () => {
@@ -33,7 +33,7 @@ class MovieDetails extends Component {
                 })}
 
                 <h4>Genres</h4>
-                
+
                 {this.props.reduxStore.genres.map((genre, index) => {
                     return <div key={index}>
                                 <p>{genre.name}</p>
