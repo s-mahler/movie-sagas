@@ -14,7 +14,7 @@ class App extends Component {
         <Router>
           <Link to="/addmovie">Add a movie</Link>
 
-          <Route exactpath="/" component={Movies}/>
+          <Route exact path="/" component={Movies}/>
           <Route path="/details" component={MovieDetails}/>
           <Route path="/addmovie" component={AddMovie}/>
         </Router>
