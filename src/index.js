@@ -16,6 +16,7 @@ import Axios from 'axios';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_GENRES', getGenres);
+    yield takeEvery('GET_SPECIFIC_MOVIE', getSpecificMovie);
 }
 
 function* getMovies() {
@@ -26,6 +27,15 @@ function* getMovies() {
 function* getGenres() {
     const genresResposne = yield Axios.get(`/api/genre`);
     yield put({type: 'SET_GENRES', payload: genresResposne.data});
+}
+
+function* getSpecificMovie(action) {
+    try {
+    const specificMovieResponse = yield Axios.get(`/api/movie/${action.payload}`);
+    yield put({type: 'SET_MOVIES', payload: specificMovieResponse.data});
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Create sagaMiddleware

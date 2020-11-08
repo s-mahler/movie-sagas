@@ -50,4 +50,14 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/:movieId', (req, res) => {
+  const queryText = `SELECT * FROM movies WHERE id = ${req.params.movieId}`;
+  pool.query(queryText).then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('Error getting specific movie from DB', error);
+    res.sendStatus(500);
+  })
+})
+
 module.exports = router;
