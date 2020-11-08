@@ -24,7 +24,6 @@ function* rootSaga() {
 function* addMovie(action) {
     try{
         yield Axios.post('/api/movie', action.payload);
-        // yield put({type: 'SET_MOVIES'});
     } catch (error) {
         console.log(error);
     }

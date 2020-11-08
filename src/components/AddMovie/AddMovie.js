@@ -36,11 +36,14 @@ class AddMovie extends Component {
 
     submitForm = () => {
         // Basic input validation, verging on being too repetetive
-        if (this.state.title === '' || this.state.poster === ''|| this.state.description === '' || this.state.genre === '' || this.state.genre === 'Select a genre') {
+        if (this.state.newMovie.title === '' || this.state.newMovie.poster === ''|| this.state.newMovie.description === '' || this.state.newMovie.genre_id === '') {
             alert('Complete all input fields and select a genre');
         } else {
             console.log(this.state.newMovie)
             this.props.dispatch({type: 'ADD_MOVIE', payload: this.state.newMovie});
+            // After adding in the push back to the home page, server and client side 404s started to return in a GET route
+            // Everything still functions as before, and I have no clue where they are coming from
+            this.props.history.push(`/`);
         }
     }
 
@@ -51,7 +54,7 @@ class AddMovie extends Component {
                 <input onChange={(event) => this.handleChange(event, 'poster')}placeholder="Poster URL"/>
                 <textarea onChange={(event) => this.handleChange(event, 'description')} placeholder="Description"/>
                 <select onChange={(event) => this.handleChange(event, 'genre_id')}>
-                    <option>Select a genre</option>
+                    <option value=''>Select a genre</option>
                     {this.props.reduxStore.genres.map((genre) => {
                         return <option key={genre.id} value={genre.id}>
                                     {genre.name}

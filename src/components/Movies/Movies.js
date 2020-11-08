@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 class Movies extends Component {
     
     componentDidMount = () => {
@@ -21,9 +20,9 @@ class Movies extends Component {
             <ol>
                 {this.props.reduxStore.movies.map((movie) => {
                     return <li key={movie.id}>
-                                <img onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
                                 <h4>{movie.title}</h4> 
-                                {movie.description}
+                                <img onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
+                                <p>{movie.description}</p>
                             </li>
                 })}
             </ol>
