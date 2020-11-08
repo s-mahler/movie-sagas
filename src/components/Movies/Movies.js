@@ -13,7 +13,7 @@ class Movies extends Component {
     }
 
     goToDetails = (movieId) => {
-        this.props.history.push(`/details/${movieId}`)
+        this.props.history.push(`/details/${movieId}`);
     }
     
     render() {
