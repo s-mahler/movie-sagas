@@ -39,7 +39,7 @@ class AddMovie extends Component {
         if (this.state.title === '' || this.state.poster === ''|| this.state.description === '' || this.state.genre === '' || this.state.genre === 'Select a genre') {
             alert('Complete all input fields and select a genre');
         } else {
-            console.log(this.state.newMovie);
+            console.log(this.state.newMovie)
             this.props.dispatch({type: 'ADD_MOVIE', payload: this.state.newMovie});
         }
     }
