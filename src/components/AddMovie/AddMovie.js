@@ -41,8 +41,6 @@ class AddMovie extends Component {
         } else {
             console.log(this.state.newMovie)
             this.props.dispatch({type: 'ADD_MOVIE', payload: this.state.newMovie});
-            // After adding in the push back to the home page, server and client side 404s started to return in a GET route
-            // Everything still functions as before, and I have no clue where they are coming from
             this.props.history.push(`/`);
         }
     }
@@ -50,10 +48,10 @@ class AddMovie extends Component {
     render() {
         return (
             <div className="movieForm">
-                <input className="movieTitle" onChange={(event) => this.handleChange(event, 'title')} placeholder="Title"/>
-                <input className="moviePoster" onChange={(event) => this.handleChange(event, 'poster')}placeholder="Poster URL"/>
-                <textarea className="movieDescription" onChange={(event) => this.handleChange(event, 'description')} placeholder="Description"/>
-                <select className="movieGenre" onChange={(event) => this.handleChange(event, 'genre_id')}>
+                <input onChange={(event) => this.handleChange(event, 'title')} placeholder="Title"/>
+                <input onChange={(event) => this.handleChange(event, 'poster')}placeholder="Poster URL"/>
+                <textarea onChange={(event) => this.handleChange(event, 'description')} placeholder="Description"/>
+                <select onChange={(event) => this.handleChange(event, 'genre_id')}>
                     <option value=''>Select a genre</option>
                     {this.props.reduxStore.genres.map((genre) => {
                         return <option key={genre.id} value={genre.id}>

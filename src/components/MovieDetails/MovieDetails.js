@@ -24,22 +24,32 @@ class MovieDetails extends Component {
     render() {
         return (
             <>
+            <div>
                 {this.props.reduxStore.movies.map((movie) => {
-                    return <div key={movie.id}>
-                                <img alt={movie.description} src={movie.poster}/> 
-                                <h4>{movie.title}</h4> 
-                                {movie.description}
+                    return <div className="movieDetails" key={movie.id}>
+
+                                <img className="moviePoster" alt={movie.description} src={movie.poster}/> 
+
+                                <div className="movieGenres">
+                                    <h4>Genres</h4>
+                                    {this.props.reduxStore.genres.map((genre, index) => {
+                                        return <div key={index}>
+                                                    <p>{genre.name}</p>
+                                                </div>
+                                    })}
+                                </div>
+
+                                <div className="movieDescription">
+                                    <h4>{movie.title}</h4> 
+                                    <p>{movie.description}</p>
+                                </div>
+
                             </div>
                 })}
+            </div>
 
-                <h4>Genres</h4>
+            <button onClick={this.goBack}>Go Back</button>
 
-                {this.props.reduxStore.genres.map((genre, index) => {
-                    return <div key={index}>
-                                <p>{genre.name}</p>
-                            </div>
-                })}
-                <button onClick={this.goBack}>Go Back</button>
             </>
         )
     }

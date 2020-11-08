@@ -31,9 +31,33 @@
   overflow: auto;
 }
 
+.movieDetails {
+  display: flex;
+  margin: 20px 15%;
+}
+
+.movieDescription {
+  box-shadow: 0 4px 12px 0 grey;
+  margin: 20px 10px;
+  padding: 0 25px;
+}
+
+.movieGenres {
+  box-shadow: 0 4px 12px 0 grey;
+  margin: 20px 10px;
+  padding: 0 25px;
+  height: 10%;
+  align-self: center;
+}
+
+.moviePoster {
+  margin-right: 10px;
+}
+
 img {
   text-align: left;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   height: 15em;
   width: 10em;
 }
@@ -45,8 +69,6 @@ img {
   padding: 0 25%;
   width: 50%;
 }
-
-
 
 .movieForm * {
   margin: 10px;

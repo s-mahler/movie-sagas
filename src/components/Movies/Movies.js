@@ -20,10 +20,10 @@ class Movies extends Component {
             <ol>
                 {this.props.reduxStore.movies.map((movie) => {
                     return <li className="movieCard" key={movie.id}>
-                                <img className="poster" onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
+                                <img onClick={() => this.goToDetails(movie.id)} alt={movie.description} src={movie.poster}/> 
                                 <div className="movieText">
-                                    <h4 className="title">{movie.title}</h4> 
-                                    <p className="description">{movie.description}</p>
+                                    <h4>{movie.title}</h4> 
+                                    <p>{movie.description}</p>
                                 </div>
                             </li>
                 })}
