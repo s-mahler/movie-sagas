@@ -1,3 +1,4 @@
+const { default: Axios } = require('axios');
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
@@ -36,6 +37,16 @@ router.post('/', (req, res) => {
   }).catch(err => {
     console.log(err);
     res.sendStatus(500)
+  })
+})
+
+router.get('/', (req, res) => {
+  const queryText = 'SELECT * FROM movies';
+  pool.query(queryText).then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('Error getting movies from DB', error);
+    res.sendStatus(500);
   })
 })
 
