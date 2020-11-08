@@ -8,13 +8,13 @@ This project displays movies, including a description and their poster, and allo
 
 ## Screen Shot
 
-Home page/movie list
+- Home page/movie list
 ![list](wireframes/movie_list.png)
 
-Specific movie details
+- Specific movie details
 ![details](wireframes/movie_details.png)
 
-Add a movie form
+- Add a movie form
 ![form](wireframes/movie_form.png)
 
 ### Prerequisites
