@@ -12,8 +12,11 @@ class App extends Component {
       <div className="App">
         <h1>Movies!</h1>
         <Router>
+          {/* This link shows up on every page */}
+          {/* It doesn't affect functionality, but I would prefer to remove it from the "add movie" view */}
           <Link className="link" to="/addmovie">Add a movie</Link>
 
+          {/* Routes used throughout the app */}
           <Route exact path="/" component={Movies}/>
           <Route path="/details/:movieId" component={MovieDetails}/>
           <Route path="/addmovie" component={AddMovie}/>

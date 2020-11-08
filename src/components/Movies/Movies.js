@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 
 class Movies extends Component {
     
+    // Trigger functions on page load
     componentDidMount = () => {
         this.getMovies();
     }
 
+    // Get movies from DB
     getMovies = () => {
         this.props.dispatch({type: 'GET_MOVIES'});
     }
 
+    // Route user to specific movie, sending the movieId parameter
     goToDetails = (movieId) => {
         this.props.history.push(`/details/${movieId}`);
     }

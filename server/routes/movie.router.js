@@ -40,6 +40,7 @@ router.post('/', (req, res) => {
   })
 })
 
+// Get all movies from DB to display on home page
 router.get('/', (req, res) => {
   const queryText = 'SELECT * FROM movies';
   pool.query(queryText).then((result) => {
@@ -50,6 +51,7 @@ router.get('/', (req, res) => {
   })
 })
 
+// Get a specific movie's information
 router.get('/:movieId', (req, res) => {
   const queryText = `SELECT * FROM movies WHERE id = ${req.params.movieId}`;
   pool.query(queryText).then((result) => {

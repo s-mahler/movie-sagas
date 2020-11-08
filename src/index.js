@@ -21,6 +21,7 @@ function* rootSaga() {
     yield takeEvery('ADD_MOVIE', addMovie);
 }
 
+// Axios post to send information from AddMovie form to the server
 function* addMovie(action) {
     try{
         yield Axios.post('/api/movie', action.payload);
@@ -29,6 +30,7 @@ function* addMovie(action) {
     }
 }
 
+// Get movies and genres from server
 function* getMovies() {
     const moviesResponse = yield Axios.get(`/api/movie`);
     yield put({type: 'SET_MOVIES', payload: moviesResponse.data});
@@ -39,6 +41,7 @@ function* getGenres() {
     yield put({type: 'SET_GENRES', payload: genresResponse.data});
 }
 
+// Get specific movies and genres based on movieId
 function* getSpecificGenres(action) {
     try {
         const specificGenresResponse = yield Axios.get(`/api/genre/${action.payload}`);

@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 
 class MovieDetails extends Component {
     
+    // Trigger functions on page load
     componentDidMount = () => {
         this.getSpecificMovie();
         this.getGenres();
     }
 
+    // Get movie and its genres
+    // Payload is the router parameter (specific movie ID)
     getGenres = () => {
         this.props.dispatch({type: 'GET_SPECIFIC_GENRES', payload: this.props.match.params.movieId});
     }
@@ -17,6 +20,7 @@ class MovieDetails extends Component {
         this.props.dispatch({type: 'GET_SPECIFIC_MOVIE', payload: this.props.match.params.movieId});
     }
 
+    // Send user back to home page
     goBack = () => {
         this.props.history.push(`/`);
     }
@@ -24,7 +28,6 @@ class MovieDetails extends Component {
     render() {
         return (
             <>
-            <div>
                 {this.props.reduxStore.movies.map((movie) => {
                     return <div className="movieDetails" key={movie.id}>
 
@@ -32,6 +35,7 @@ class MovieDetails extends Component {
 
                                 <div className="movieGenres">
                                     <h4>Genres</h4>
+
                                     {this.props.reduxStore.genres.map((genre, index) => {
                                         return <div key={index}>
                                                     <p>{genre.name}</p>
@@ -46,10 +50,8 @@ class MovieDetails extends Component {
 
                             </div>
                 })}
-            </div>
 
             <button onClick={this.goBack}>Go Back</button>
-
             </>
         )
     }
